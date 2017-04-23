@@ -74,7 +74,7 @@ vi /etc/kubernetes/apiserver
 
 	KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
 	KUBE_API_PORT="--port=8080"
-	KUBE_ETCD_SERVERS="--etcd-servers=http://YOURPRIVATIP:2379"
+	KUBE_ETCD_SERVERS="--etcd-servers=http://YOURPRIVATIPMASTER:2379"
 	KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
 	KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
 	KUBE_API_ARGS="--client-ca-file=/srv/kubernetes/ca.crt --tls-cert-file=/srv/kubernetes/server.cert --tls-private-key-file=/srv/kubernetes/server.key"
@@ -92,8 +92,8 @@ vi /etc/kubernetes/kubelet
 
 	KUBELET_ADDRESS="--address=0.0.0.0"
 	KUBELET_PORT="--port=10250"
-	KUBELET_HOSTNAME="--hostname-override=YourPrivatIP"
-	KUBELET_API_SERVER="--api-servers=http://YourPrivatIP:8080"
+	KUBELET_HOSTNAME="--hostname-override=YourPrivatIPNode"
+	KUBELET_API_SERVER="--api-servers=http://YourPrivatIPMaster:8080"
 	KUBELET_ARGS="--cluster-dns=10.254.3.100 --cluster-domain=cluster.local"
 ####
 Before Configuring Flannel for Kubernetes cluster, we need to create network configuration for Flannel in etcd.<br />
@@ -116,7 +116,7 @@ The above command allocates the 182.30.0.0/16 subnet to the Flannel network. A f
 Kubernetes uses Flannel to build an overlay network for inter-pod communication. Flannel configuration is stored in /etc/sysconfig/flanneld <br />
 vi /etc/sysconfig/flanneld
 
-	FLANNEL_ETCD_ENDPOINTS="http://YourPrivateIp:2379"
+	FLANNEL_ETCD_ENDPOINTS="http://YourPrivateIpMaster:2379"
 	FLANNEL_ETCD_PREFIX="/kube-centos/network"
 	
 ## Step 4: Start services on Master and Minion
