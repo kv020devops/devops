@@ -74,6 +74,7 @@ vi /etc/kubernetes/apiserver
 
 	KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
 	KUBE_API_PORT="--port=8080"
+	KUBELET_PORT="--kubelet-port=10250"
 	KUBE_ETCD_SERVERS="--etcd-servers=http://YOURPRIVATIPMASTER:2379"
 	KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
 	KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
