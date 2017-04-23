@@ -67,7 +67,7 @@ Download this script and update line number 30 in the file.
 Now, run the script with following parameters to create certificates:
 
 
-	bash make-ca-cert.sh "!!!YOURPRIVATIP"  "IP:!!!YOURPRIVATIP,IP:10.254.0.1,DNS:kubernetes,DNS:kubernetes.default,DNS:kubernetes.default.svc,DNS:kubernetes.default.svc.cluster.local"
+	bash make-ca-cert.sh "!!!YOURPRIVATIPMaster"  "IP:!!!YOURPRIVATIPMaster,IP:10.254.0.1,DNS:kubernetes,DNS:kubernetes.default,DNS:kubernetes.default.svc,DNS:kubernetes.default.svc.cluster.local"
 
 Now, we can configure API server: 
 vi /etc/kubernetes/apiserver
