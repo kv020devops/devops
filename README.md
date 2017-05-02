@@ -172,3 +172,9 @@ Open http://master_public_ip:8080/ui on your browser.
 
 
 ######
+
+Configure kubectl
+
+	kubectl config set-cluster default-cluster --server=http://centos-master:8080
+	kubectl config set-context default-context --cluster=default-cluster --user=default-admin
+	kubectl config use-context default-context
